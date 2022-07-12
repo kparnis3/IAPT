@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/mainpage.css') }}">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/js_ajax_server.css') }}">
+    <script>
+        $(document).ready(function() {
+        var i = 1;
+        $('.add').on('click', function() {
+         var field = '<br><div>Link URL '+i+': <input type="text" name="blog_linku_one[]"> &nbsp; Link Name '+i+':  <input type="text" name="blog_linkn_one[]"></div>';
+        $('.appending_div').append(field);
+        i = i+1;
+        })
+})
+    </script>
+    </head>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Intelligent Information Dashboard</a>
+        </div>
+    </nav>
+
+     <!-- Header -->
+     <header class="jumbotron my-4">
+        <h1 class="display-3 text-sm-center">Dashboard</h1>
+        <hr>
+        <form action="#" class="text-sm-center" method="post">
+            <div class="navbar-brand under">
+                <p>Twitter</p>
+            </div>
+            <p><input type="text" name="Twitter Hashtag" placeholder="Tag starting with #... (ex: #futurist)"/></p>
+            <div class="navbar-brand under">
+                <p>Facebook</p>
+            </div>
+            <p><input type="text" name="Facebook group"  placeholder="Name of a facebook group... (ex: geekwire)"/></p>
+            <div class="navbar-brand under">
+                <p>Article</p>
+            </div>
+            <p><input type="text" name="Article Link" placeholder="Article link... (ex: https://www.geekwire.com/)"/></p>
+            <div class="navbar-brand under">
+                <p>Google</p>
+            </div>
+            <p><input type="text" name="Google term" placeholder="Google search term... (ex: futurist)"/></p>
+            <p><input type="submit" name="submit_button" value="Add Data"/></p>
+        </form>
+        <!-- Data goes here-->
+
+        <hr>
+        <p class="lead text-sm-center">(Enter search information to get relivent Topics, links and further information. )</p>
+        <p class="lead text-sm-center">(Additional data can be added to original collection)</p>
+        <br>
+
+    </header>
+
+    
+    {% if data3 %}
+        <h1 class="display-3 text-sm-center">Mentioned Brands/People in particular topics:</h1>
+        <p class="lead text-sm-center">(Topic's followed with the amount of times particular entities are mentioned)</p>
+        <hr>
+    <div class="scrollable container">
+    <table>
+        {%for i in range(0, len3)%}
+        <tr>
+            <td>{{data3[i][0]}}</td>
+            <td>{{data3[i][1]}}</td>
+        </tr>
+        {%endfor%}
+    </table>
+    </div>
+    <hr>
+    <br><br><br>
+    {% endif %}
+
+    {% if data2 %}
+    <h1 class="display-3 text-sm-center">Processed Results:</h1>
+    <hr>
+    {% for key, value in data2.items() %}
+        <p class="text-sm-center TopicSize">{{key}}</p>
+        <div class="scrollable container">
+        <table>
+            <tr>
+                <th style="width: 200px;">Text Summary</th>
+                <th style="width: 200px;">Text Score</th>
+                <th style="width: 200px;">Reference</th>
+            </tr>
+            {% for v in value %}
+            <tr>
+                <td style="width: 200px;">{{v[0]}}</td>
+                <td style="width: 200px;">{{v[1]}}</td>
+                <td style="width: 200px;">{{v[2]}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        </div>
+        <br>
+        {% endfor %}
+        <br>
+        <form action="#" class="text-sm-center" method="post">
+            <p><input type="text" name="Email" placeholder="Enter email here to send data"/>
+            <input type="submit" name="submit_button" value="Email Data"/></p>
+        </form>
+    <br><br><br>
+    {% endif %}
+
+    {% if data %}
+        <h1 class="display-3 text-sm-center">Current data collection:</h1>
+        <hr>
+    <div class="scrollable container">
+    <table>
+        {%for i in range(0, len)%}
+        <tr>
+            <td>{{data[i][0]}}</td>
+            <td>{{data[i][1]}}</td>
+        </tr>
+        {%endfor%}
+    </table>
+    </div>
+    <hr>
+    <form action="#" class="text-sm-center" method="post">
+        <p><input type="submit" name="submit_button" value="Remove Data"/>
+        <input type="submit" name="submit_button" value="Process Data"/></p>
+    </form>
+   
+    <br><br><br><br><br><br>
+    {% endif %}
+
+
+    <!-- Footer -->
+    <footer id= "footer" class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Kian Parnis 107601L</p>
+        </div>
+        <!-- /.container -->
+    </footer>
+</html>

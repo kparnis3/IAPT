@@ -1,0 +1,10 @@
+pip install facebook_scraper==0.2.55
+pip install tweepy==4.8.0
+pip install scikit-learn==1.0.2
+pip install flask_mail==0.9.1
+pip install nltk==3.7
+pip install newspaper3k==0.2.8
+pip install -U pip setuptools wheel
+pip install -U spacy
+python -m spacy download en_core_web_sm
+pip install google==3.0.0
