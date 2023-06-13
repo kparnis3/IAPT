@@ -178,6 +178,14 @@ and all the processed data within this tab will then be sent to that
 respective email address by the system. This processed is achieved
 with the use of Flask’s mail feature.
 
+# Website visual
+
+![Main DashBoard](https://github.com/kparnis3/IAPT/assets/81303628/20226f8f-a674-40d4-bc02-ab1b683efac8)
+
+# Website Post Scraping
+
+![First task](https://github.com/kparnis3/IAPT/assets/81303628/ec37cc47-5593-478d-b24c-f4ae9209ec4d)
+
 # Folder Structure
 - Python version used 3.10.5
 
@@ -203,7 +211,6 @@ from venv:
 2)  write command 'set FLASK_APP=Flask.py'
 3)  write command 'python -m flask run'
 4)  finally, copy address given by the cmd and paste into google. (might need to wait a few seconds to recieve link)
-
 
 ## Breakdown of Flask Server
 1)  Backend (python script) can be found 'Flask Server\Flask.py'
