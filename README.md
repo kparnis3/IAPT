@@ -183,12 +183,12 @@ with the use of Flask’s mail feature.
 
 ## Installing virtual enviroments for packages
 1)  Open a new cmd promt
-2)  cd to 'ARI2201-Artifact-and-Report-Submission-Kian-Parnis-0107601L' folder
+2)  cd to root folder folder
 3)  enter 'python3 -m venv IAPT_env' in terminal
 4)  Activate virtual enviroment from console with 'IAPT_env\Scripts\activate.bat'
 
 ## Installing packages from venv env
-- In 'C:\Users\User\Desktop\ARI2201-Artifact-and-Report-Submission-Kian-Parnis-0107601L' with venv activated run:
+- In root folder with venv activated run:
 1)  'cmd < requirements.txt'
 1.1)  Small note, running this might sometimes pose an os error i.e. a particular package doesnt install successfully, in that case open 'requirements.txt' and manually install particular package ex: google doesn't install therefore write 'pip install google==3.0.0' into cmd
 from console:
